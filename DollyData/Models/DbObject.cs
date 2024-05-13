@@ -11,6 +11,6 @@ namespace DollyData.Models
         /// <summary>
         /// Gets or sets the database id.
         /// </summary>
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public Guid id { get; set; } = Guid.NewGuid();
     }
 }
