@@ -54,7 +54,7 @@
                                     Click="RemoveDoll_Click"
                                     Content="Yes, delete this doll"
                                     Foreground="White"
-                                    Tag="{x:Bind id}" />
+                                    Tag="{x:Bind Id}" />
                             </StackPanel>
                         </Flyout>
                     </Button.Flyout>
@@ -167,7 +167,6 @@
                 <Button
                     x:Name="AddCompany"
                     Width="150"
-                    Click="AddCompany_Click"
                     Content="Add Company"
                     RelativePanel.AlignBottomWithPanel="True"
                     RelativePanel.AlignRightWithPanel="True" />

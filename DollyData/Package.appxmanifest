@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="8c8f2c78-a8d1-476c-bd30-6ac56eead86d"
-    Publisher="CN=it"
+    Name="KinoDev.DollyData"
+    Publisher="CN=C309C6FF-7F78-4787-85F1-49BDB6961462"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="8c8f2c78-a8d1-476c-bd30-6ac56eead86d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="c0c79a16-4d24-4d0c-b50a-d18919e56d7a" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>DollyData</DisplayName>
-    <PublisherDisplayName>it</PublisherDisplayName>
+    <PublisherDisplayName>KinoDev</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -37,7 +37,7 @@
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="DollyData"
         BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>

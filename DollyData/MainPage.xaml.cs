@@ -1,25 +1,8 @@
 ﻿using DollyData.Models;
-using DollyData;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using Windows.UI.Xaml.Media.Imaging;
-using Windows.Foundation.Metadata;
-using Windows.System;
-using Windows.Media.Casting;
-using System.Data.SqlTypes;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -35,7 +18,7 @@ namespace DollyData
         {
             this.InitializeComponent();
 
- }
+        }
 
         private void DollCard_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -53,9 +36,9 @@ namespace DollyData
         {
             string name = AddDollName.Text.ToString();
             string description = AddDollDescription.Text.ToString();
-            string image = "Assets/Square44x44Logo.targetsize-24_altform-unplated.png";
+            string image = "Assets\\Square44x44Logo.targetsize-256.png";
             int amount = int.Parse(AddDollAmount.Text.ToString());
-            Guid company = Guid.NewGuid();
+            int company = int.Parse(AddDollCompany.Text.ToString());
             string line = AddDollLine.Text.ToString();
             bool isFavorite = (bool)AddDollIsFavorite.IsChecked;
 
@@ -81,7 +64,7 @@ namespace DollyData
             Button btn = (Button)sender;
             for (int i = 0; i < Dolls.Count; i++)
             {
-                if (Dolls[i].id == (Guid)btn.Tag)
+                if (Dolls[i].Id == (int)btn.Tag)
                 {
                     Dolls.RemoveAt(i);
                 }

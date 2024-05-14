@@ -9,8 +9,21 @@ using System.Threading.Tasks;
 
 namespace DollyData.Models
 {
-    public class Doll : DbObject, INotifyPropertyChanged
+    public class Doll : INotifyPropertyChanged
     {
+        private int _id;
+        public int Id
+        {
+            get => _id;
+            set
+            {
+                if (_id != value)
+                {
+                    _id = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
         private string _name;
         public string Name
         {
@@ -89,8 +102,8 @@ namespace DollyData.Models
                 }
             }
         }
-        private Guid _companyId;
-        public Guid CompanyId
+        private int _companyId;
+        public int CompanyId
         {
             get => _companyId;
             set
@@ -103,7 +116,23 @@ namespace DollyData.Models
             }
         }
 
-        public Doll(string name, string description, string lineName, int amount, string image, bool isFavorite, Guid company )
+        
+        private Company _company;
+        public Company Company
+        {
+            get => _company;
+            set
+            {
+                if (_company != value)
+                {
+                    _company = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
+
+
+        public Doll(string name, string description, string lineName, int amount, string image, bool isFavorite, int companyId )
         {
             this.Name = name;
             this.Description = description;
@@ -111,7 +140,7 @@ namespace DollyData.Models
             this.Amount = amount;
             this.Image = image;
             this.IsFavorite = isFavorite;
-            this.CompanyId = company;
+            this.CompanyId = companyId;
             
         }
         public event PropertyChangedEventHandler PropertyChanged;
