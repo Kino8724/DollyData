@@ -32,6 +32,7 @@ namespace DollyData
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
+            DataAccess.InitializeDatabase();
         }
 
         /// <summary>
