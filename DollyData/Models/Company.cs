@@ -50,6 +50,12 @@ namespace DollyData.Models
             }
         }
 
+        public Company(int id, string name)
+        {
+            this.Id = id;
+            this.Name = name;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged([CallerMemberName] string propertyName = null) =>

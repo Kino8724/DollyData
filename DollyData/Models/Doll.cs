@@ -132,8 +132,9 @@ namespace DollyData.Models
         }
 
 
-        public Doll(string name, string description, string lineName, int amount, string image, bool isFavorite, int companyId )
+        public Doll(int id, string name, string description, string lineName, int amount, string image, bool isFavorite, int companyId )
         {
+            this.Id = id;
             this.Name = name;
             this.Description = description;
             this.LineName = lineName;

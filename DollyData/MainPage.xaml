@@ -92,9 +92,10 @@
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="30*" />
-                <ColumnDefinition Width="65*" />
+                <ColumnDefinition Width="48*" />
             </Grid.ColumnDefinitions>
             <RelativePanel
+                x:Name="AddPanel"
                 Grid.Column="0"
                 Margin="0,0,12,0"
                 BorderBrush="Red"
@@ -167,9 +168,34 @@
                 <Button
                     x:Name="AddCompany"
                     Width="150"
+                    Click="AddCompany_Click"
                     Content="Add Company"
                     RelativePanel.AlignBottomWithPanel="True"
                     RelativePanel.AlignRightWithPanel="True" />
+                <Popup
+                    x:Name="AddCompanyPopup"
+                    IsLightDismissEnabled="True"
+                    IsOpen="False"
+                    RelativePanel.Below="AddCompany">
+                    <StackPanel
+                        Width="284"
+                        Background="AliceBlue"
+                        BorderBrush="Purple"
+                        BorderThickness="2">
+                        <TextBox
+                            x:Name="AddCompanyName"
+                            BorderThickness="0"
+                            Header="Company Name"
+                            PlaceholderText="Type here..." />
+                        <Button
+                            x:Name="SubmitAddCompany"
+                            Margin="0,12,0,0"
+                            Background="Blue"
+                            Click="SubmitAddCompany_Click"
+                            Content="SUBMIT"
+                            Foreground="White" />
+                    </StackPanel>
+                </Popup>
             </RelativePanel>
         </Grid>
         <RelativePanel Grid.Row="1" Margin="0,8">
@@ -186,19 +212,15 @@
                     InputScope="AlphanumericFullWidth"
                     PlaceholderText="Name" />
                 <TextBlock Margin="4,27,8,0" Text="OR" />
-                <muxc:DropDownButton Margin="4,22,0,0" Content="Company">
-                    <muxc:DropDownButton.Flyout>
-                        <MenuFlyout Placement="Bottom">
-                            <MenuFlyoutItem Text="Mattel" />
-                            <MenuFlyoutItem Text="MGA" />
-                            <MenuFlyoutItem Text="Smart Doll" />
-                            <MenuFlyoutItem Text="All Companies" />
-                        </MenuFlyout>
-                    </muxc:DropDownButton.Flyout>
-                </muxc:DropDownButton>
+                <TextBox
+                    Width="200"
+                    Margin="0,0,4,0"
+                    Header="Company Name"
+                    InputScope="AlphanumericFullWidth"
+                    PlaceholderText="Name" />
             </StackPanel>
             <Grid
-                Width="340"
+                Width="442"
                 Margin="0,8"
                 RelativePanel.Below="Search">
                 <Grid.RowDefinitions>
@@ -217,7 +239,7 @@
                 <GridView
                     x:Name="DollCard"
                     Grid.Row="1"
-                    Width="340"
+                    Width="442"
                     Height="500"
                     Padding="6,6,6,0"
                     Background="LightGray"
