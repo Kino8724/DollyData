@@ -129,6 +129,7 @@
                             TextWrapping="Wrap" />
                         <TextBox
                             x:Name="AddDollCompany"
+                            BeforeTextChanging="AddDollInt_BeforeTextChanging"
                             BorderThickness="0"
                             Header="Company"
                             PlaceholderText="Type here..." />
@@ -139,7 +140,7 @@
                             PlaceholderText="Type here..." />
                         <TextBox
                             x:Name="AddDollAmount"
-                            BeforeTextChanging="AddDollAmount_BeforeTextChanging"
+                            BeforeTextChanging="AddDollInt_BeforeTextChanging"
                             BorderThickness="0"
                             Header="Amount"
                             PlaceholderText="Type here..." />

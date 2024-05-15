@@ -49,9 +49,12 @@ namespace DollyData
             string line = AddDollLine.Text.ToString();
             bool isFavorite = (bool)AddDollIsFavorite.IsChecked;
 
+            
+            
+
             AddDollPopup.IsOpen = false;
             Doll newDoll = DataAccess.AddDollData(name, description, line, amount, image, isFavorite, company);
-            Debug.WriteLine("NEW DOLL AFTER QUERY" + newDoll.Id + " " + newDoll.Name);
+            Debug.WriteLine("NEW DOLL AFTER QUERY " + newDoll.Id + " " + newDoll.Name + newDoll.CompanyId);
             Dolls.Add(newDoll);
             
             AddDollName.Text = "";
@@ -62,7 +65,7 @@ namespace DollyData
             AddDollIsFavorite.IsChecked = false;
         }
 
-        private void AddDollAmount_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
+        private void AddDollInt_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
         {
             args.Cancel = args.NewText.Any(c => !char.IsDigit(c));
         }

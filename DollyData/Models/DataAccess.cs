@@ -149,7 +149,7 @@ namespace DollyData.Models
                     string lineName = query.GetString(3);
                     int amount = query.GetInt32(4);
                     string imagePath = query.GetString(5);
-                    bool isFavorite = bool.Parse(query.GetInt32(6).ToString());
+                    bool isFavorite = Convert.ToBoolean(query.GetInt32(6));
                     int companyId = query.GetInt32(7);
 
                     Doll newDoll = new Doll(id, name, description, lineName, amount, imagePath, isFavorite, companyId);
