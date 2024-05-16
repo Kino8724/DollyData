@@ -144,6 +144,16 @@ namespace DollyData.Models
             this.CompanyId = companyId;
             
         }
+        public Doll(int id, string name, string description, string lineName, int amount, string image, bool isFavorite)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Description = description;
+            this.LineName = lineName;
+            this.Amount = amount;
+            this.Image = image;
+            this.IsFavorite = isFavorite;
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged([CallerMemberName] string propertyName = null) =>

@@ -41,20 +41,50 @@ namespace DollyData
 
         private void SubmitAddDoll_Click(object sender, RoutedEventArgs e)
         {
+            bool isValid = false;
+            if(AddDollName.Text == "" || AddDollName.Text == null)
+            {
+                isValid = false;
+            }
+            else if(AddDollDescription.Text == "" || AddDollDescription.Text == null)
+            {
+                isValid = false;
+            }
+            else if(AddDollCompany.SelectionBoxItem == null)
+            {
+                isValid = false;
+            }
+            else if(AddDollLine.Text == "" || AddDollLine.Text == null)
+            {
+                isValid = false;
+            }
+            else if(AddDollAmount.Text == "" || AddDollAmount.Text == null || AddDollAmount.Text == "0")
+            {
+                isValid = false;
+            }
+            else
+            {
+                isValid = true;
+            }
+
+            if (isValid)
+            {
             string name = AddDollName.Text.ToString();
             string description = AddDollDescription.Text.ToString();
             string image = "Assets\\Square44x44Logo.targetsize-256.png";
             int amount = int.Parse(AddDollAmount.Text.ToString());
-            int company = int.Parse(AddDollCompany.Text.ToString());
+            Debug.WriteLine("SELECTED VALUE: " + AddDollCompany.SelectedValue);
+            Debug.WriteLine("SELECTED ITEM: " + AddDollCompany.SelectedItem);
+            Debug.WriteLine("SELECTED INDEX: " + AddDollCompany.SelectedIndex);
+            Debug.WriteLine("SELECTED BOXITEM: " + AddDollCompany.SelectionBoxItem);
+            Debug.WriteLine("COMBOBOX TEXT: " + AddDollCompany.Text);
+            int company = int.Parse(AddDollCompany.SelectedIndex.ToString()) + 1;
             string line = AddDollLine.Text.ToString();
             bool isFavorite = (bool)AddDollIsFavorite.IsChecked;
 
-            
-            
-
             AddDollPopup.IsOpen = false;
             Doll newDoll = DataAccess.AddDollData(name, description, line, amount, image, isFavorite, company);
-            Debug.WriteLine("NEW DOLL AFTER QUERY " + newDoll.Id + " " + newDoll.Name + newDoll.CompanyId);
+            Debug.WriteLine("NEW DOLL AFTER QUERY " + newDoll.Id + " " + newDoll.Name + " CompanyId: " + newDoll.CompanyId);
             Dolls.Add(newDoll);
             
             AddDollName.Text = "";
@@ -63,6 +93,7 @@ namespace DollyData
             AddDollAmount.Text = "";
             AddDollLine.Text = "";
             AddDollIsFavorite.IsChecked = false;
+            }
         }
 
         private void AddDollInt_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
@@ -91,6 +122,18 @@ namespace DollyData
 
         private void SubmitAddCompany_Click(object sender, RoutedEventArgs e)
         {
+            bool isValid = false;
+            if (AddCompanyName.Text == "" || AddCompanyName.Text == null)
+            {
+                isValid = false; 
+            }
+            else
+            {
+                isValid = true;
+            }
+
+            if (isValid)
+            {
             string name = AddCompanyName.Text.ToString();
 
             AddCompanyPopup.IsOpen = false;
@@ -100,6 +143,7 @@ namespace DollyData
             Debug.WriteLine(Companies.Last().Name);
 
             AddCompanyName.Text = "";
+            }
         }
     }
 }

@@ -9,7 +9,7 @@
   <Identity
     Name="KinoDev.DollyData"
     Publisher="CN=C309C6FF-7F78-4787-85F1-49BDB6961462"
-    Version="1.0.1.0" />
+    Version="1.0.2.0" />
 
   <mp:PhoneIdentity PhoneProductId="c0c79a16-4d24-4d0c-b50a-d18919e56d7a" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

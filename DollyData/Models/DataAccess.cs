@@ -67,11 +67,19 @@ namespace DollyData.Models
                 insertCommand.Parameters.AddWithValue("@isFavorite", intIsFavorite);
                 insertCommand.Parameters.AddWithValue("@companyId", companyId);
 
+                try
+                {
                 int newDollId = Convert.ToInt32(insertCommand.ExecuteScalar());
-
                 Debug.WriteLine("Doll has been added");
                 Doll newDoll = new Doll(newDollId,name,description,lineName,amount,imagePath,isFavorite,companyId);
                 return newDoll;
+                }catch (Exception ex)
+                {
+                    Debug.WriteLine("An error has occured : " + ex.ToString());
+                    Doll errorDoll = new Doll(0, "Error", "There has been an error: " + ex.TargetSite.ToString(), "...", 0, "Assets\\Square44x44Logo.targetsize-256.png", false);
+                    return errorDoll;
+                }
+
             }
 
         }

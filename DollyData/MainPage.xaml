@@ -127,12 +127,16 @@
                             Header="Doll Description"
                             PlaceholderText="Type here..."
                             TextWrapping="Wrap" />
-                        <TextBox
+                        <ComboBox
                             x:Name="AddDollCompany"
-                            BeforeTextChanging="AddDollInt_BeforeTextChanging"
-                            BorderThickness="0"
-                            Header="Company"
-                            PlaceholderText="Type here..." />
+                            Header="Companies (You may need to make one first)"
+                            ItemsSource="{x:Bind Companies, Mode=OneWay}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate x:DataType="model:Company">
+                                    <TextBlock Tag="{x:Bind Id, Mode=OneWay}" Text="{x:Bind Name, Mode=OneWay}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                         <TextBox
                             x:Name="AddDollLine"
                             BorderThickness="0"
@@ -142,7 +146,7 @@
                             x:Name="AddDollAmount"
                             BeforeTextChanging="AddDollInt_BeforeTextChanging"
                             BorderThickness="0"
-                            Header="Amount"
+                            Header="Amount (Must be more than 0)"
                             PlaceholderText="Type here..." />
                         <CheckBox
                             x:Name="AddDollIsFavorite"
