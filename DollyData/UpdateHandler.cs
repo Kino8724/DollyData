@@ -20,7 +20,10 @@ namespace DollyData
                 string OnlineVersion = await GetOnlineVersion();
                 string LocalVersion = GetAppVersion();
 
-                if(OnlineVersion != LocalVersion)
+                Debug.WriteLine("Online Version: ",OnlineVersion);
+                Debug.WriteLine("Local Version: ",LocalVersion);
+
+                if (OnlineVersion != LocalVersion)
                 {
                     Debug.WriteLine("There are new updates available");
                     DownloadUpdates();
@@ -51,7 +54,7 @@ namespace DollyData
                 Debug.WriteLine(ex.Message);
                 return ex.Message;
             }
-            
+
         }
         public static string GetAppVersion()
         {
@@ -75,5 +78,5 @@ namespace DollyData
 
 
         }
- }
+    }
 }

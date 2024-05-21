@@ -1,5 +1,4 @@
-﻿using DollyData;
-using DollyData.Models;
+﻿using DollyData.Models;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -25,6 +24,7 @@ namespace DollyData
 
             DataAccess.InitializeDatabase();
             
+            UpdateHandler.CheckForUpdates();
         }
 
         /// <summary>
